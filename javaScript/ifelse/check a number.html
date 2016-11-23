@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>functions</title>
+	</head>
+	<body>
+	<script>
+document.write("Необходимо сделать проверку:  <br/>1. Является ли введенное число положительным или отрицательным. <br/>2. Является ли оно простым  <br/>3. Делится ли оно на 2, 5, 3, 6, 9 без остатка <br/>")
+
+	var num = +prompt("Please, enter a number");
+		document.write(	"<p style='color:blue'>Your number is " + num + ".</p>");
+				if (num < 0) {
+			document.write("<p style='color:blue'>This is a negative number.</p>");
+		} else if (num == 0) {
+			document.write("<p style='color:blue'>This is 0.</p>");
+		} else {
+			document.write("<p style='color:blue'>This is a positive number.</p>");
+			if (num % 2 == 0) {
+				document.write("<p style='color:blue'>This is a even numper.</p>");
+			} 
+			if (num % 3 == 0) {
+				document.write("<p style='color:blue'>You can divide it on 3.</p>");
+			}
+			if (num % 5 == 0) {
+				document.write("<p style='color:blue'>You can divide it on 5.</p>");
+			}
+			if (num % 6 == 0) {
+				document.write("<p style='color:blue'>You can divide it on 6.</p>");
+			}
+			if (num % 9 == 0) {
+				document.write("<p style='color:blue'>You can divide it on 9.</p>");
+			}
+			
+			for (i = 3; i <= Math.ceil(Math.sqrt(num)); i++) {
+				if (num % i != 0) {
+				var prime = true;
+				}
+			}	
+			if (prime) {
+				document.write("<p style='color:blue'>This is a prime number.</p>");
+			}
+		}
+	</script>
+	</body>
+	</html>

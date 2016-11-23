@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>functions</title>
+	</head>
+	<body>
+	<script>
+	
+	document.write("Создайте четыре функции для арифметических действий: (Add – сложение, Sub – вычитание, Mul – умножение, Div – деление). Каждая функция должна принимать два параметра и выводить на экран результат вычисления. Функция деления должна делать проверку деления на ноль. Пользователь вводит значения, над которыми хочет произвести операцию и выбрать саму операцию. ");
+
+	function add (a, b) {
+		return a + b;
+	}
+	function sub (a, b) {
+		return a - b;
+	}
+
+	function mul (a, b) {
+		a * b;
+	}
+	function div (a, b){
+		if (b == 0) {
+			alert("You can not divide on 0");
+		} else {
+			return a / b;
+		}
+	}
+
+	var num1 = +prompt("Please, insert first number");
+	var num2 = +prompt("Please, insert second number");
+	var operator = prompt("Please, insert an operator", "+, -, *, /");
+	var result;
+
+	switch (operator) {
+		case "+":
+			result = add(num1, num2);
+			break;
+		case "-":
+			result = sub(num1, num2);
+			break;
+		case "*":
+			result = mul(num1, num2);
+			break;
+		case "/":
+			result = div(num1, num2);
+			break;
+		default:
+		document.write("<p style='color:red'>Please, insert correct operator!</p>");
+	}
+	if (result != undefined)
+		document.write("<p style='color:blue'>" + num1 + " " + operator + " " + num2 + " = " + result + "</p>");
+
+ 
+</script>
+	</body>
+	</html>
+
