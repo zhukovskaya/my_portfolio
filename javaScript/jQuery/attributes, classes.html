@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Attributes and classes</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+	 
+        $(function () { 
+			$("#toggle").val("Make divs colorfull!");
+            
+            $("#toggle").on("click", toggle);
+			
+            function toggle() {
+				var value = $("#toggle").val();
+				$("#toggle").val(value == "Make divs colorfull!" ? "It looks nice!" : "Make divs colorfull!");
+                
+                $("div").toggleClass(function(n) {
+                    return "class" + (n+1);
+                });
+            }
+       
+            var element = $("#child").position();
+            var output = $("#output");
+            output.html("Мои координаты относительно родителя:<br />" + "x: " + element.left + "<br />y: " + element.top);
+        });
+
+    </script>
+    <style>
+        
+        #main_parent{
+            border: 2px solid darkgrey;
+            width: 700px;
+            height: 450px;
+            position: relative;
+            left: 230px;
+            top: 30px;
+            padding: 5px;
+        }
+
+        #parent {
+            border: 2px dashed darkgrey; 
+            width: 500px;
+            height: 350px;
+            left: 40px; 
+            top: 10px; 
+            position: relative; /* Закомментировать */
+            padding: 5px;
+        }
+
+        #child {
+            border: 2px dotted darkgrey;
+            width: 270px;
+            height: 200px;
+            position: absolute;
+            top: 30px;
+            left: 100px;
+            padding: 5px;
+        }
+
+		#toggle {
+			height: 30px;
+			width: 180px;
+			margin: 30px 30px;
+		}
+
+        .class1 {
+            background: darkred;
+        }
+
+        .class2 {
+			background: indianred;
+        }
+
+        .class3 {
+        	background: pink;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="toggle" />
+	<div id="main_parent">Main parent
+	    <div id="parent">Parent
+	        <div id="child" >Child
+	            <p id="output"></p>
+	        </div>
+	    </div>
+    </div> 
+</body>
+</html>
