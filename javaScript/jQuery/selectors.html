@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Selectors</title>
+
+	<!--    
+	1)	Gодключите к данному документу библиотеку jQuery;
+	2)	Создайте на странице текстовое поле и кнопку.
+	3)	Создайте произвольное количество элементов на странице с различными уровнями вложенности.
+	4)	Цель: в текстовое поле вводим селектор и нажимаем на кнопку. Элемент, который соответвует селектору, меняет цвет. 
+	-->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		
+		$("#try").on("click", tryHandler);
+			
+		function tryHandler () {
+			$("#view").css("color", "#ccc");
+			var selector = $("#selector").val();
+			$(selector).css("color", "black");
+		 };
+	});
+
+	</script>
+	<style>
+	#wrapper {
+		background: url(img1.jpg) repeat;
+		font-family: Arial;
+		color: #fff;
+		padding: 50px;
+	}
+	#input {
+		width:50%;
+		margin: 0px auto;
+		
+	}
+	#try, #selector {
+		width: 48%;
+
+	}
+
+	
+#view {
+		background:white;
+		color: #111;
+		width: 70%;               
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid black;
+        text-align: justify;
+	}
+	</style>   
+<body>
+<div id="wrapper">
+	<div id="input">
+	<input id="selector" type="text">
+	<button id="try" type="button">Try to applay your selector</button></div>
+	<div id="view"><h1>&lt;div id="view"&gt;&lt;h1&gt;Lorem ipsum dolor sit amet, consectetur.&lt;/h1&gt;</h1>
+		<div class="text">&lt;div class="text"&gt;
+			<p>&lt;p&gt;Lorem ipsum dolor sit amet, <b>&lt;b&gt;consectetur adipisicing&lt;/b&gt;</b> elit. Ad consectetur, voluptas <span>&lt;span&gt;maiores soluta inventore&lt;/span&gt;</span> laudantium dolor eaque sint mollitia doloribus cum voluptatibus. Officiis cum sunt aperiam consequatur magni repellendus molestiae.&lt;/p&gt;</p>
+			<p>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum placeat tempora quaerat possimus reiciendis consequuntur hic! Nulla, alias fuga, est quis eos tempore doloribus.&lt;/p&gt;&lt;/div&gt;</p>
+		</div>
+		<div id="list">&lt;div id="list"&gt;
+			<ul>&lt;ul&gt;
+				<li>&lt;li&gt;Item 1&lt;/li&gt;</li>
+				<li>&lt;li&gt;Item 2&lt;/li&gt;</li>
+				<li>&lt;li&gt;Item 3&lt;/li&gt;</li>
+					<ul>&lt;ul&gt;
+						<li>&lt;li&gt;<a>&lt;a&gt;Link 1&lt;/a&gt;&lt;/li&gt;</a></li>
+						<li>&lt;li&gt;<a>&lt;a&gt;Link 2&lt;/a&gt;&lt;/li&gt;</a></li>
+					&lt;/ul&gt;</ul>
+				<li>&lt;li&gt;Item 4&lt;/li&gt;</li>
+				
+			&lt;/ul&gt;</ul>
+		&lt;/div&gt;</div>
+		<p class="text">&lt;p class="text"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis illo enim inventore asperiores sunt, dicta error sed nam eos quod ut nisi perspiciatis quidem, qui, alias facilis vitae ea soluta?<span>&lt;span&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis.&lt;/span&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. &lt;/p&gt;</p>
+		<p>&lt;p&gt; Distinctio tempora praesentium at animi iusto maiores nihil nisi earum repudiandae accusamus possimus autem sunt beatae nobis, voluptatum laboriosam laborum deleniti soluta porro eius nulla voluptates qui, asperiores. A expedita excepturi nam dolor, nulla recusandae possimus sint odit eius, aliquam dolorum tempora mollitia consectetur numquam hic quaerat. In tempora itaque pariatur.&lt;/p&gt;</p>
+	&lt;/div&gt;</div>
+	</div>
+	
+</body>
+</html>

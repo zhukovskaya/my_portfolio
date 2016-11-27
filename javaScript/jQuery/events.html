@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery Events</title>
+	<style>
+#info {
+	position: fixed;
+	top: 30px;
+	left: 30px;
+	background: lightgreen;
+	padding: 15px;
+	border: 3px solid green;
+}
+	</style>
+
+</head>
+<body>
+<div id="info">The infonmation will  if resise or scroll event happens.  
+	<p id="resize-text"></p>
+	<p id="scroll-text"></p>
+</div>
+<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+<script
+  src="https://code.jquery.com/jquerydcc-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+<script>
+	$(function(){
+		/*$(window).on("resize scroll", {user: "Some string"}, function(e){
+			$("#resize-text").text("Width: " + window.innerWidth + ", Height: " + window.innerHeight);
+			$("#scroll-text").text("Position Y: " + window.scrollY);
+		})*/
+		$(window).on({
+			resize:   function(){
+				$("#resize-text").text("Width: " + window.innerWidth + ", Height: " + window.innerHeight);
+			},
+			scroll: function(e){
+				$("#scroll-text").text("Position Y: " + window.scrollY);
+				console.log(e.data.user);
+			}
+		}, {user: "Some string"});
+		
+	})
+</script>
+</body>
+</html>

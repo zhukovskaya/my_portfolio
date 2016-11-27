@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Filters</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	 <script>
+
+            $(function () {
+                                               
+                $("#btn").on("click", function(){
+               
+                    var filter = $("#filter").val();
+                   try {
+                        var input = $("form").find(filter).css("background","darkred");
+
+                        $("form").find(":not(" + filter +")").css("background-color", "");
+                        $("#msg")
+                            .text("For this filter jQuery found " + input.length + " matches.");
+                            
+                        $("form").submit(function(event) {
+                            event.preventDefault();
+                        })
+                    }   catch(err) {
+                        $("#msg").text("Please,enter correct selector.");
+                    }
+                    
+                 });
+               
+                $("table tr:nth-child(3n+1)").css("background-color", "silver");
+
+                var i = 0;
+                  
+                var timer = setInterval(choose, 1000);
+        
+
+                function choose() {
+                    $("tr:eq(" + (($("tr").length + i) % $("tr").length - 1) + ")").css("font-weight", "normal");
+                    $("tr:eq(" + ($("tr").length + i) % $("tr").length + ")").css("font-weight", "bold");    
+                    i++;
+        }
+
+                $("td:empty")
+                    .css ({
+                        color: "white",
+                        background: "darkred"})
+                    
+                    .text("missing data");
+                    
+                    });
+
+        </script>
+        <style>
+            #filter {
+                height: 2em;
+                border: 3px solid darkgrey;
+                width: 40%;
+            }
+             #btn {
+                width: 20%;
+             }
+
+             #msg {
+                color: red;
+                margin: 3px auto;
+                text-align: center;
+            }
+
+            form {
+               background: lightgrey;
+               padding: 5px 20px;
+               width: 30%;
+               margin: 0 auto;
+            }
+             input, label, select, button, textarea {
+                display: block;
+                width: 60%;
+                margin: 3px auto ;
+            }
+
+            table {
+                border: 2px solid;
+                border-collapse: collapse;
+                width: 80%;
+                margin: 10px auto;
+            }
+
+            table tr td{
+                border: 1px solid;
+                text-align: center;
+            }
+
+            #task {
+                width: 80%;
+                margin: 10px auto;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="task">
+        Создайте таблицу на 10 строк. Выделите средствами jQuery каждую третью строку (начиная с первой) цветом. Покажите применение фильтров.
+        </div>
+        <input type="text" id="filter" placeholder="Choose your filter">
+        <input type="button" id="btn" value="Press to check!">
+        <div id="msg"></div>
+        <form>          
+            <input type="text" name="surname">
+            <input type="button" value="Input Button">
+            <input type="file">
+            <input type="hidden">
+            <input type="hidden">
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="password">
+            <input type="reset">
+            <input type="submit">
+            <select><option selected>Option1</option><option>Option2</option></select>
+            <textarea></textarea>
+            <button>Button</button>
+        </form>
+        <table>
+            <tr>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+            </tr>
+            <tr>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+            </tr>
+            <tr>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+            </tr>
+            <tr>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+            </tr>
+            <tr>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+            </tr>
+            <tr>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+            </tr>
+            <tr>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+            </tr>
+            <tr>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+            </tr>
+            <tr>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+            </tr>
+            <tr>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td>Some value</td>
+                <td></td>
+            </tr>
+        </table>
+    </body>
+</html>
