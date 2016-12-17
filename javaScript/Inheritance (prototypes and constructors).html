@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>Inheritance in JavaScript</title>
+
+    <script type="text/javascript">
+        
+        function Person(name) {
+            this.name = name;
+        }
+
+        Person.prototype.showName = function () { console.log("Hello! My name is " + this.name) }
+
+        function Student(name, education) {
+            Person.call(this, name);
+            this.education = education;
+        }
+
+        function Worker(name, workPlace) {
+            Person.call(this, name);
+            this.workPlace = workPlace;
+        }
+
+        Student.prototype = Object.create(Person.prototype);
+        Worker.prototype = Object.create(Person.prototype);
+        
+        Student.prototype.constructor = Student;
+        Worker.prototype.constructor = Worker;
+
+        var community = {};
+        community.citizens = [];               
+        
+        community.addPerson = function(obj) {
+            if (obj instanceof Student || Worker) 
+                community.citizens.push(obj);
+            
+        }
+
+        community.showAll = function() {
+            if (community.citizens.length == 0) 
+                {console.log("There is no sitizens yet!");
+            } else {
+                console.log(community.citizens);
+            }
+        }
+      
+        var alex = new Student("Alexander", "pua");
+        var andrew = new Worker("Andrew", "supermarket");
+        console.log(alex);
+        community.addPerson(alex);
+        community.showAll();
+        alex.showName();
+        community.addPerson(andrew);
+        community.showAll();
+      
+
+    </script>
+</head>
+<body>
+</body>
+</html>
