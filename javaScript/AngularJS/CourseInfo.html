@@ -1,0 +1,53 @@
+.<!DOCTYPE html>
+
+<html ng-app="courseListApp">
+<head>
+	<title>Front-end courses</title>
+	<script src="Libraries/angular.js"></script>
+	<link href="Libraries/bootstrap.css" rel="stylesheet" />
+	<link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+
+	<script>
+	   
+		var courseListApp = angular.module("courseListApp", []);
+
+		courseListApp.controller("courseListCtrl", function ($scope) {
+
+			$scope.courses = [{ name: "HTML, CSS", lector: "Max Veber", duration: "8 hours", intro: "HTML is the standard markup language for creating Web pages. CSS describes how HTML elements are to be displayed on screen, paper, or in other media" },
+				{ name: "JavaScript Essential", lector: "Peter Shim", duration: "10 hours", intro: "JavaScript is the programming language of HTML and the Web."},
+				{ name: "JavaScript Advanced", lector: "Peter Shim", duration: "12 hours", intro: "With the HTML DOM, JavaScript can access and change all the elements of an HTML document."},
+				{ name: "HTML5 &amp; CSS3", lector: "Max Veber", duration: "4 hours", intro: "HTML5 is supported in all modern browsers. CSS3 is the latest standard for CSS. CSS3 is completely backwards-compatible with earlier versions of CSS. This section teaches you about the new features in CSS3!" },
+				{ name: "AngularJS", lector: "Peter Shimr", duration: "10 hours", intro: "AngularJS is a JavaScript framework. It can be added to an HTML page with a <script> tag. AngularJS extends HTML attributes with Directives, and binds data to HTML with Expressions." }];
+					   
+		});
+
+	</script>
+
+</head>
+	<body ng-controller="courseListCtrl">
+		<div class="container">
+			<div class="page-header">
+				<h1>Front-end courses <small>Start your dream here!</small></h1>
+			</div>
+			<p> You’ll learn how to build beautiful, interactive websites by learning the fundamentals of HTML, CSS, and JavaScript — three common coding languages on which all modern websites are built.</p>
+			<form>
+				<label>Select your course:</label>
+				<select ng-model="selectedCourse" ng-options="course.name for course in courses">
+				<option value=""></option>
+				</select>
+			</form>
+			<div ng-hide="selectedCourse.name">
+				Chose course to find detail information about this course.
+			</div>
+			<div class="panel panel-default" ng-show="selectedCourse.name">
+				<div class="panel-heading panel-title">Welcome to {{selectedCourse.name}} course!</div>
+				<div class="panel-body">
+					<p><b>Lector name:</b> {{selectedCourse.lector}}.</p>
+					<p><b>Duration:</b> {{selectedCourse.duration}}.</p>
+					<p><b>Course introduction:</b> {{selectedCourse.intro}}</p>
+				</div>
+			</div>
+			<p>By the end of this trip, you’ll have all the skills required to build your own websites or even start a career with one of the thousands of companies that have a website.</p>
+		</div>
+	</body>
+</html>
