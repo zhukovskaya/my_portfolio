@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Регистрация</title>
+	<link href="style.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|PT+Sans+Narrow:700" rel="stylesheet">
+</head>
+<body>
+	<div id="content">
+	</div>
+	<div id="registration">
+		<h1>Регистрация</h1>
+		<p>Войдите с помощью учетной записи в других сервисах</p>
+		<div class="icons left">
+			<a href="#"><i class="fa fa-facebook social"></i></a>
+			<a href="#"><i class="fa fa-vk social"></i></a>
+			<a href="#"><i class="fa fa-google-plus social"></i></a>
+			<a href="#"><i class="fa fa-twitter social"></i></a>
+		</div>
+		<p id="line">или</p>
+		<form action="">
+			<input type="text" id="name" pattern="[\d\w\-]{1,}" required placeholder="Логин (из латинских букв, цифр, дефиса)">
+			<input type="email" id="email" required placeholder="Почта">
+			<input type="password" id="password1" required placeholder="Пароль">
+			<input type="password" id="password2" required placeholder="Повторите пароль">
+			<button id="reg" type="submit">Зарегистрироваться</button>
+		</form>
+		<p class="left">Регистрируясь вы принимаете условия <br />
+		<a href="#" target="_blank">Пользовательского соглашения</a></p>
+	</div>
+
+	<script src="main.js"></script>
+		
+</body>
+</html>
