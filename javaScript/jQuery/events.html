@@ -16,7 +16,7 @@
 
 </head>
 <body>
-<div id="info">The infonmation will  if resise or scroll event happens.  
+<div id="info">The information will  if resise or scroll event happens.  
 	<p id="resize-text"></p>
 	<p id="scroll-text"></p>
 </div>
@@ -27,19 +27,19 @@
   crossorigin="anonymous"></script>
 <script>
 	$(function(){
-		/*$(window).on("resize scroll", {user: "Some string"}, function(e){
+		$(window).on("resize scroll", {user: "Some string"}, function(e){
 			$("#resize-text").text("Width: " + window.innerWidth + ", Height: " + window.innerHeight);
 			$("#scroll-text").text("Position Y: " + window.scrollY);
-		})*/
-		$(window).on({
-			resize:   function(){
-				$("#resize-text").text("Width: " + window.innerWidth + ", Height: " + window.innerHeight);
-			},
-			scroll: function(e){
-				$("#scroll-text").text("Position Y: " + window.scrollY);
-				console.log(e.data.user);
-			}
-		}, {user: "Some string"});
+		})
+		// $(window).on({
+		// 	resize:   function(e){
+		// 		$("#resize-text").text("Width: " + window.innerWidth + ", Height: " + window.innerHeight);
+		// 	},
+		// 	scroll: function(e){
+		// 		$("#scroll-text").text("Position Y: " + window.scrollY);
+		// 		console.log(e.data.user);
+		// 	}
+		// }, {user: "Some string"});
 		
 	})
 </script>
