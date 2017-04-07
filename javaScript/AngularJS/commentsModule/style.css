@@ -1,0 +1,140 @@
+form {
+	margin: 40px;
+	position: relative;
+}
+
+.row {
+	margin: 0 auto 15px;
+}
+textarea {
+	width: 100%;
+}
+
+#captcha {
+	-webkit-user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+}
+
+
+.fa-comments-o,
+.fa-comment-o {
+	color: #F65A5B;
+	margin: 10px;
+	vertical-align: super;
+}
+
+.fa-comment-o {
+transform: scaleX(-1);
+}
+
+h2 {
+	padding-left: 100px;
+}
+
+
+.badge {
+	padding: 4px 8px;
+	vertical-align: super;
+    background-color: #999;
+    border-radius: 10px;
+}
+.table {
+	margin: 20px auto;
+	width: 90%;
+	max-width: 90%;
+}
+
+.text {
+	padding: 10px;
+	margin: 10px 0;
+	background: #eee;
+	border-radius: 4px;
+}
+
+.main-btn {
+   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+   transition: background 500ms;
+   color: #fff;
+	background: #999;
+	border: none;
+   border-radius: 20px;
+   padding: 5px 10px;
+   padding: 6px 10px;
+    min-width: 90px;
+}
+.fa {
+	margin: 3px;
+}
+
+.fa-replay {
+	margin: 10px;
+}
+
+.rating {
+ text-align: left;
+ -webkit-user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+ margin: 0;
+ display: inline-block;
+}
+
+.likes,
+.dislikes {
+   background: #f98e8f;
+ color: #fff;
+ cursor: pointer;
+ display: inline-block;
+ font-size: 15px;
+   line-height: 32px;
+   min-width: 32px;
+   height: 32px;
+   border-radius: 50%;
+ margin: 1px;
+   text-align: center;
+   font-weight: 200;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+   transition: background 500ms;
+}
+
+.reply:hover,
+.likes:hover,
+.dislikes:hover {
+ color: #F65A5B ;
+   background: rgba(246, 90, 91, 0.25);
+   transition: background 500ms;
+}
+
+#pagination {
+  text-align: center;
+}
+
+.sortorder:after {
+  content: '\25b2';   // BLACK UP-POINTING TRIANGLE
+}
+.sortorder.reverse:after {
+  content: '\25bc';   // BLACK DOWN-POINTING TRIANGLE
+}
+
+.child-comment {
+	margin: 0 0 0 40px;
+    padding: 10px 0 10px 10px;
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.child-comment:last-child {
+	border-bottom: none;
+}
+.author {
+	font-weight: bold;
+	font-size: 0.9em;
+}
+	
+.email {
+	font-style: italic;
+font-size: 0.8em;
+}
+.date {
+	font-size: 0.8em;
+}

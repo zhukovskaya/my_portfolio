@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comment App with AngularJS</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div ng-app="commentsApp" ng-controller="commentsCtrl">
+    	
+        <form class="text-center" name="commentForm" action="">
+          <div class="row">
+          <label class="col-sm-offset-2 col-sm-2" for="name">User Name</label><input class="col-sm-4" ng-model="c.author" name="name" type="text" required pattern="[\d\w]{1,}" placeholder="Only 0-9 or A-z">
+          <span  ng-show="commentForm.name.$touched && commentForm.name.$error.required || commentForm.name.$touched && commentForm.name.$invalid" >
+         User Name is required!</span>
+         <span ng-show="commentForm.name.$error.pattern" >Only 0-9 or A-z</span>
+      </div>
+      <div class="row">
+  <label  class="col-sm-offset-2 col-sm-2" for="email">E-mail</label><input class="col-sm-4" ng-model="c.email" name="email" type="email" required>
+    <span  ng-show="commentForm.email.$touched && commentForm.email.$error.required">Email is required</span>
+  <span  ng-show="commentForm.email.$error.email">Please enter a valid email address</span>
+</div>
+  <div class="row">
+  <label class="col-sm-offset-2 col-sm-2" for="homepage">Homepage</label><input class="col-sm-4" ng-model="c.homepage" name="homepage" type="url">
+  </div>
+  <div class="row">
+    <input class="text-center"type="text" disabled id="captcha" ng-value="captcha" ><button  type ="button" ng-click="generateCaptcha()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+    <input type="text" name="captchaText" required ng-model="captchaText" ><button  type ="button" ng-click="check()"><i class="fa fa-check" aria-hidden="true"></i></button>
+    <span  ng-show="commentForm.captchaText.$touched && commentForm.captchaText.$error.required">CAPTCHA is required</span>
+    <span  ng-show="commentForm.captchaText.$touched && !checkCaptcha" >Please, enter correct CAPTCHA and check</span>
+  </div>
+
+  <input class="row "type="file" ng-molel="c.file">
+  
+  <textarea class="row" rows="3" ng-model="c.commentText" name="commentText" required pattern="[\d\w]{1,}" placeholder="Your Comment"></textarea>
+  <span ng-show="commentForm.commentText.$touched && commentForm.commentText.$error.required">Comment text is required</span>
+  <button class="main-btn" type="button" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Add New Comment</button>
+  </form>
+
+		<h2><i class="fa fa-comments-o" aria-hidden="true"></i>Comments <span class="badge">{{comments.length}}</span></h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th ng-click="sortBy('author')">User Name<span class="sortorder" ng-show="propertyName === 'author'" ng-class="{reverse: reverse}"></span></th>
+						<th ng-click="sortBy('email')">E-mail<span class="sortorder" ng-show="propertyName === 'email'" ng-class="{reverse: reverse}"></span></th>
+						<th ng-click="sortBy('date')">Date<span class="sortorder" ng-show="propertyName === 'date'" ng-class="{reverse: reverse}"></span></th>
+					</tr>
+				</thead>
+				<tbody >
+
+					<tr ng-repeat="comment in comments | orderBy:propertyName:reverse" ng-if="comment.parentId == 0" >
+            <td>
+              <p class="author"><i class="fa fa-comment-o" aria-hidden="true"></i>  {{comment.author}} </p>
+              <p class="text"> {{comment.text}} </p>
+              <button class="main-btn" type="button"><i class="fa fa-reply" aria-hidden="true"></i>Reply</button>  
+              <div class="rating"> 
+                <p class="likes" ng-click="plusOne($index)">+ {{comment.likes}} </p> 
+                <p class="dislikes" ng-click="minusOne($index)">- {{comment.dislikes}}</p>   
+              </div>
+              <div class="child-comment" ng-repeat="com in comments " ng-if="com.parentId == comment.id" >
+                <div>
+                  <div>
+                    <i class="fa fa-comment-o" aria-hidden="true"></i><span class="author">{{com.author}}</span><span class="email">{{com.email}}</span> <span class="date">{{com.date | date:'medium'}}</span>
+                  <div>
+                  <p class="text"> {{com.text}} </p>
+                  <button class="main-btn" type="button"><i class="fa fa-reply" aria-hidden="true"></i>Reply</button>  
+                  <div class="rating"> 
+                    <p class="likes" ng-click="plusOne($index)">+ {{com.likes}} </p> 
+                    <p class="dislikes" ng-click="minusOne($index)">- {{com.dislikes}}</p>   
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="email">{{comment.email}}</td>
+            <td class="date">{{comment.date | date:'medium'}}</td>
+          </tr>
+        
+<!-- | orderBy:propertyName -->
+
+				</tbody>
+			</table>
+
+			<div ng-controller="paginationCtrl" id="pagination" class="row">
+        <button class="main-btn" ng-disabled="firstPage()" ng-click="pageBack()">Previous</button>
+        <span>{{currentPage+1}} / {{numberOfPages()}}</span>
+        <button class="main-btn" ng-disabled="lastPage()" ng-click="pageForward()">Next</button>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+   
+    <script src="comments.js"></script>
+
+  </body>
+</html>
+<!-- | startFrom: startingItem() | limitTo: itemsPerPage  -->
+<!-- ng-show="comment.parentId == 0" --> 
